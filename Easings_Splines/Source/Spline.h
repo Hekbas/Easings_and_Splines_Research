@@ -12,6 +12,7 @@ public:
 public:
 
 	List<iPoint> points;
+	int selectedPoint = 0;
 
 private:
 

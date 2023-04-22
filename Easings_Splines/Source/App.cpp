@@ -24,8 +24,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	tex = new Textures(true);
 	fonts = new Fonts(true);
 	audio = new Audio(true);
-	sceneEasings = new SceneEasings(true);
-	sceneSplines = new SceneSplines(false);
+	sceneEasings = new SceneEasings(false);
+	sceneSplines = new SceneSplines(true);
 	render = new Render(true);
 
 

@@ -75,36 +75,47 @@ bool SceneSplines::PreUpdate()
 // Called each loop iteration
 bool SceneSplines::Update(float dt)
 {
-	//Camera movement
-	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) { app->render->camera.y++; }
-	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) { app->render->camera.y--; }
-	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) { app->render->camera.x++; }
-	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) { app->render->camera.x--; }
-
-	// Limit FPS
-	if (app->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN)
-		app->render->limitFPS = !app->render->limitFPS;
-
-
-	//Draw grid
+	// Draw grid
 	DrawGrid(0, 0, 100, 128, 128, 128, 48);
 
-	//Splines
+	// SPLINES ===========================
+	// Draw points + num
 	for (size_t i = 0; spline->points.At(i) != NULL; i++)
 	{
 		int posX = spline->points.At(i)->data.x;
 		int posY = spline->points.At(i)->data.y;
 
 		app->render->DrawCircle(posX, posY, 6, 255, 0, 0, 255, true);
-		app->fonts->BlitText(posX, posY, 0, std::to_string(i).c_str(), false);
+		app->fonts->BlitText(posX, posY, 0, std::to_string(i).c_str(), true);
 	}
 
-	//Debug
-	std::string string = std::string("EASING TYPE:  ") + std::to_string(20);
-	app->fonts->BlitText(200, 50, 0, string.c_str(), false);
+	// Handle input
+	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.x--; }
+	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.x++; }
+	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.y--; }
+	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.y++; }
 
-	string = std::string("ELAPSED TIME: ") + std::to_string(easingElapsedTime);
-	app->fonts->BlitText(200, 100, 0, string.c_str(), false);
+	if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN)
+		if (++spline->selectedPoint == spline->points.Count())
+			spline->selectedPoint = 0;
+
+	if (app->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN)
+		if (--spline->selectedPoint < 0)
+			spline->selectedPoint = spline->points.Count() - 1;
+
+
+
+
+	//Debug
+	std::string string = std::string("- SPLINES -");
+	app->fonts->BlitText(100, 50, 0, string.c_str(), false);
+
+	string = std::string("NODES: ") + std::to_string(spline->points.Count());
+	app->fonts->BlitText(100, 100, 0, string.c_str(), false);
+
+	// Limit FPS
+	if (app->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN)
+		app->render->limitFPS = !app->render->limitFPS;
 
 
 	return true;
