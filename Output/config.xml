@@ -1,0 +1,29 @@
+<config>
+	<app>
+		<title>Easings & Splines</title>
+		<organization>UPC</organization>
+	</app>
+	
+	<renderer>
+		<vsync value="false"/>
+	</renderer>
+	
+	<window>
+		<resolution width="1200" height="700" scale="1"/>
+		<fullscreen value="false"/>
+		<borderless value="false"/>
+		<resizable value="false"/>
+		<fullscreen_window value="false"/>
+	</window>
+	<audio>
+		<music volume="128"/>
+		<fx volume="128"/>
+	</audio>
+	<scene>
+		<texturepaths font="Assets/Fonts/sprite_font_white.png"/>
+		<player x="33" y="3" texturepath="Assets/Textures/NPCs.png"/>
+		<map>
+			<mapfolder path="Assets/Maps/"/>
+		</map>
+	</scene>
+</config>
