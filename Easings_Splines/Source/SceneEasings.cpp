@@ -4,24 +4,25 @@
 #include "Audio.h"
 #include "Render.h"
 #include "Window.h"
-#include "Scene.h"
+#include "SceneEasings.h"
+#include "SceneSplines.h"
 #include "Fonts.h"
 #include "Easing.h"
 
 #include "Defs.h"
 #include "Log.h"
 
-Scene::Scene(bool startEnabled) : Module(startEnabled)
+SceneEasings::SceneEasings(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("scene");
 }
 
 // Destructor
-Scene::~Scene()
+SceneEasings::~SceneEasings()
 {}
 
 // Called before render is available
-bool Scene::Awake()
+bool SceneEasings::Awake()
 {
 	LOG("Loading Scene");
 	bool ret = true;
@@ -30,7 +31,7 @@ bool Scene::Awake()
 }
 
 // Called before the first frame
-bool Scene::Start()
+bool SceneEasings::Start()
 {
 	LOG("Starting Scene");
 	bool ret = true;
@@ -58,13 +59,13 @@ bool Scene::Start()
 }
 
 // Called each loop iteration
-bool Scene::PreUpdate()
+bool SceneEasings::PreUpdate()
 {
 	return true;
 }
 
 // Called each loop iteration
-bool Scene::Update(float dt)
+bool SceneEasings::Update(float dt)
 {
 	//Camera movement
 	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) { app->render->camera.y++; }
@@ -124,10 +125,15 @@ bool Scene::Update(float dt)
 }
 
 // Called each loop iteration
-bool Scene::PostUpdate()
+bool SceneEasings::PostUpdate()
 {
 	bool ret = true;
 
+	if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+	{
+		app->sceneEasings->Disable();
+		app->sceneSplines->Enable();
+	}
 
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
@@ -136,7 +142,7 @@ bool Scene::PostUpdate()
 }
 
 // Called before quitting
-bool Scene::CleanUp()
+bool SceneEasings::CleanUp()
 {
 	LOG("Freeing scene");
 
@@ -145,7 +151,7 @@ bool Scene::CleanUp()
 	return true;
 }
 
-void Scene::DrawGrid(int OX, int OY, int gridSpacing, uchar r, uchar g, uchar b, uchar a)
+void SceneEasings::DrawGrid(int OX, int OY, int gridSpacing, uchar r, uchar g, uchar b, uchar a)
 {
 	uint sizeX = 1;
 	uint sizeY = 1;

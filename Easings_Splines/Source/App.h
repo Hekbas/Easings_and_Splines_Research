@@ -14,7 +14,8 @@ class Input;
 class Render;
 class Textures;
 class Audio;
-class Scene;
+class SceneEasings;
+class SceneSplines;
 class Fonts;
 
 class App
@@ -76,11 +77,12 @@ public:
 	// Modules
 	Window* win;
 	Input* input;
-	Render* render;
 	Textures* tex;
-	Audio* audio;
-	Scene* scene;
 	Fonts* fonts;
+	Audio* audio;
+	SceneEasings* sceneEasings;
+	SceneSplines* sceneSplines;
+	Render* render;
 
 
 private:

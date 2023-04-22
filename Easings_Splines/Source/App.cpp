@@ -4,7 +4,8 @@
 #include "Render.h"
 #include "Textures.h"
 #include "Audio.h"
-#include "Scene.h"
+#include "SceneEasings.h"
+#include "SceneSplines.h"
 #include "Fonts.h"
 
 #include "Defs.h"
@@ -23,7 +24,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	tex = new Textures(true);
 	fonts = new Fonts(true);
 	audio = new Audio(true);
-	scene = new Scene(true);
+	sceneEasings = new SceneEasings(true);
+	sceneSplines = new SceneSplines(false);
 	render = new Render(true);
 
 
@@ -34,7 +36,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(tex);
 	AddModule(fonts);
 	AddModule(audio);
-	AddModule(scene);
+	AddModule(sceneEasings);
+	AddModule(sceneSplines);
 
 	// Render last to swap buffer
 	AddModule(render);

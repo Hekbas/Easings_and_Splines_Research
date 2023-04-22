@@ -1,6 +1,6 @@
 <config>
 	<app>
-		<title>Easings & Splines</title>
+		<title>Easings and Splines</title>
 		<organization>UPC</organization>
 	</app>
 	
@@ -20,8 +20,7 @@
 		<fx volume="128"/>
 	</audio>
 	<scene>
-		<texturepaths font="Assets/Fonts/sprite_font_white.png"/>
-		<player x="33" y="3" texturepath="Assets/Textures/NPCs.png"/>
+		<texturepaths font="Assets/Fonts/sprite_font_white_big.png"/>
 		<map>
 			<mapfolder path="Assets/Maps/"/>
 		</map>

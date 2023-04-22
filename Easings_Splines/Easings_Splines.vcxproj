@@ -103,8 +103,10 @@
     <ClCompile Include="Source\Audio.cpp" />
     <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\Fonts.cpp" />
-    <ClCompile Include="Source\Scene.cpp" />
+    <ClCompile Include="Source\SceneEasings.cpp" />
     <ClCompile Include="Source\Render.cpp" />
+    <ClCompile Include="Source\SceneSplines.cpp" />
+    <ClCompile Include="Source\Spline.cpp" />
     <ClCompile Include="Source\Textures.cpp" />
     <ClCompile Include="Source\Window.cpp" />
     <ClInclude Include="..\..\..\..\..\citm_desvj_project_template-L14_DeltaTime_solution\citm_desvj_project_template-L14_DeltaTime_solution\Game\Source\PerfTimer.h" />
@@ -113,12 +115,14 @@
     <ClInclude Include="Source\Easing.h" />
     <ClInclude Include="Source\Fonts.h" />
     <ClInclude Include="Source\Queue.h" />
-    <ClInclude Include="Source\Scene.h" />
+    <ClInclude Include="Source\SceneEasings.h" />
     <ClInclude Include="Source\Audio.h" />
     <ClInclude Include="Source\Input.h" />
     <ClInclude Include="Source\App.h" />
     <ClInclude Include="Source\Module.h" />
     <ClInclude Include="Source\Render.h" />
+    <ClInclude Include="Source\SceneSplines.h" />
+    <ClInclude Include="Source\Spline.h" />
     <ClInclude Include="Source\Textures.h" />
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Defs.h" />
