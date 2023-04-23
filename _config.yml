@@ -13,9 +13,6 @@ theme: minima
 minima:
   skin: dark
   
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
 
 # Theme-specific settings
 
