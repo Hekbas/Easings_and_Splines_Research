@@ -24,10 +24,4 @@
 		<music volume="128"/>
 		<fx volume="128"/>
 	</audio>
-	<scene>
-		
-		<map>
-			<mapfolder path="Assets/Maps/"/>
-		</map>
-	</scene>
 </config>

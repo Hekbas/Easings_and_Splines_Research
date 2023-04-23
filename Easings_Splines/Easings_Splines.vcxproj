@@ -106,6 +106,7 @@
     <ClCompile Include="Source\SceneEasings.cpp" />
     <ClCompile Include="Source\Render.cpp" />
     <ClCompile Include="Source\SceneSplines.cpp" />
+    <ClCompile Include="Source\SceneUIAnimation.cpp" />
     <ClCompile Include="Source\Spline.cpp" />
     <ClCompile Include="Source\Textures.cpp" />
     <ClCompile Include="Source\Window.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="Source\Module.h" />
     <ClInclude Include="Source\Render.h" />
     <ClInclude Include="Source\SceneSplines.h" />
+    <ClInclude Include="Source\SceneUIAnimation.h" />
     <ClInclude Include="Source\Spline.h" />
     <ClInclude Include="Source\Textures.h" />
     <ClInclude Include="Source\Window.h" />

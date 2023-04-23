@@ -16,6 +16,7 @@ class Textures;
 class Audio;
 class SceneEasings;
 class SceneSplines;
+class SceneUIAnimation;
 class Fonts;
 
 class App
@@ -82,6 +83,7 @@ public:
 	Audio* audio;
 	SceneEasings* sceneEasings;
 	SceneSplines* sceneSplines;
+	SceneUIAnimation* sceneUIAnimation;
 	Render* render;
 
 

@@ -6,6 +6,7 @@
 #include "Audio.h"
 #include "SceneEasings.h"
 #include "SceneSplines.h"
+#include "sceneUIAnimation.h"
 #include "Fonts.h"
 
 #include "Defs.h"
@@ -26,6 +27,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	audio = new Audio(true);
 	sceneEasings = new SceneEasings(true);
 	sceneSplines = new SceneSplines(false);
+	sceneUIAnimation = new SceneUIAnimation(false);
 	render = new Render(true);
 
 
@@ -38,6 +40,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(audio);
 	AddModule(sceneEasings);
 	AddModule(sceneSplines);
+	AddModule(sceneUIAnimation);
 
 	// Render last to swap buffer
 	AddModule(render);

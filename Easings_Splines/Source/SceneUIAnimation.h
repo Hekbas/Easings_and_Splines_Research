@@ -1,19 +1,21 @@
-#ifndef __SCENE_EASINGS_H__
-#define __SCENE_EASINGS_H__
+#ifndef __SCENE_UI_ANIMATION_H__
+#define __SCENE_UI_ANIMATION_H__
 
 #include "Module.h"
 #include "Point.h"
 #include "Animation.h"
 #include "Spline.h"
 
-class SceneSplines : public Module
+struct SDL_Texture;
+
+class SceneUIAnimation : public Module
 {
 public:
 
-	SceneSplines(bool startEnabled);
+	SceneUIAnimation(bool startEnabled);
 
 	// Destructor
-	virtual ~SceneSplines();
+	virtual ~SceneUIAnimation();
 
 	// Called before render is available
 	bool Awake();
@@ -41,13 +43,16 @@ public:
 	uiPoint windowResolution;
 	uiPoint screenCenter;
 
-	int easingTypeCount = 0;
-	double easingElapsedTime = 0;
+	
 
 
 private:
 
-	Spline* spline;
+	Easing* easingPause = nullptr;
+	Easing* easingButton = nullptr;
+
+	bool bPause = false;
+	bool bButton = false;
 };
 
-#endif // __SCENE_EASINGS_H__
+#endif // __SCENE_UI_ANIMATION_H__

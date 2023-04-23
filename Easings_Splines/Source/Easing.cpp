@@ -2,6 +2,13 @@
 
 Easing::Easing() {}
 
+Easing::Easing(double totalTime)
+{
+    this->totalTime = totalTime;
+    this->elapsedTime = 0;
+    this->bFinished = true;
+}
+
 Easing::~Easing()
 {
     //release stuff
@@ -172,10 +179,10 @@ double Easing::EaseInOutBounce(double t) {
 
 double Easing::EasingAnimation(double start, double end, double time, EasingType easingType)
 {
-    // Lambda function: [capture list](parameters) -> return type {function body}
+    // Lambda function:
+    // [capture list](parameters) -> return type {function body}
     // Captures current object and easingType by value,
     // making them accessible within the function's scope.
-    // Accepts double type parameter, return double type
     auto easing = [this, easingType](double t) -> double
     {
         switch (easingType)
@@ -216,4 +223,19 @@ double Easing::EasingAnimation(double start, double end, double time, EasingType
 
     double t = easing(time);
     return start + (end - start) * t;
+}
+
+double Easing::TrackTime(double dt)
+{
+    if (elapsedTime < totalTime)
+    {
+        elapsedTime += (dt / 1000);
+        return elapsedTime / totalTime;
+    }
+    else
+    {
+        bFinished = true;
+        elapsedTime = 0;
+        return 1;
+    }
 }

@@ -44,6 +44,7 @@ class Easing
 {
 public:
     Easing();
+    Easing(double totalTime);
     ~Easing();
 
     // Sin
@@ -51,7 +52,7 @@ public:
     double EaseOutSin(double t);
     double EaseInOutSin(double t);
 
-    // Quad
+    // Quadratic
     double EaseInQuad(double t);
     double EaseOutQuad(double t);
     double EaseInOutQuad(double t);
@@ -61,12 +62,12 @@ public:
     double EaseOutCubic(double t);
     double EaseInOutCubic(double t);
 
-    // Quart
+    // Quartic
     double EaseInQuart(double t);
     double EaseOutQuart(double t);
     double EaseInOutQuart(double t);
 
-    //Quint
+    //Quintic
     double EaseInQuint(double t);
     double EaseOutQuint(double t);
     double EaseInOutQuint(double t);
@@ -76,7 +77,7 @@ public:
     double EaseOutExp(double t);
     double EaseInOutExp(double t);
 
-    //Circ
+    //Circular
     double EaseInCirc(double t);
     double EaseOutCirc(double t);
     double EaseInOutCirc(double t);
@@ -97,8 +98,22 @@ public:
     double EaseInOutBounce(double t);
 
 
+    double TrackTime(double dt);
     double EasingAnimation(double start, double end, double time, EasingType easingType);
+
+
+    double GetElapsedTime() const { return elapsedTime; }
+    void SetElapsedTime(double elapsedTime) { this->elapsedTime = elapsedTime; }
+
+    double GetTotalTime() const { return totalTime; }
+    void SetTotalTime(double totalTime) { this->totalTime = totalTime; }
+
+    bool GetFinished() const { return bFinished; }
+    void SetFinished(bool bFinished) { this->bFinished = bFinished; }
 
 private:
 
+    double elapsedTime = 0;
+    double totalTime = 0;
+    bool bFinished = true;
 };

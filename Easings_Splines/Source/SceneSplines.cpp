@@ -8,6 +8,7 @@
 #include "Window.h"
 #include "SceneEasings.h"
 #include "SceneSplines.h"
+#include "SceneUIAnimation.h"
 #include "Easing.h"
 
 #include "Defs.h"
@@ -15,7 +16,7 @@
 
 SceneSplines::SceneSplines(bool startEnabled) : Module(startEnabled)
 {
-	name.Create("scene");
+	name.Create("sceneSplines");
 }
 
 // Destructor
@@ -137,6 +138,11 @@ bool SceneSplines::PostUpdate()
 	{
 		app->sceneSplines->Disable();
 		app->sceneEasings->Enable();
+	}
+	else if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
+	{
+		app->sceneSplines->Disable();
+		app->sceneUIAnimation->Enable();
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
