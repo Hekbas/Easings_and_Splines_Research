@@ -34,7 +34,6 @@ double Easing::EaseOutCubic(double t) {
     return 1 + (--t) * t * t;
 }
 double Easing::EaseInOutCubic(double t) {
-    //1 + (--t) * (2 * (--t)) * (2 * t); try to fix for t>0.5
     return t < 0.5 ? 4 * t * t * t : 0.5 * pow(2 * t - 2, 3) + 1;
 }
 

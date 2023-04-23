@@ -52,7 +52,7 @@ bool SceneEasings::Start()
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
-	easingTypeCount = 0;
+	easingTypeCount = 8;
 	easingElapsedTime = 0;
 
 	return ret;

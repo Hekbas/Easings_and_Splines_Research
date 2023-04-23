@@ -197,7 +197,7 @@ bool Render::DrawLine(int x1, int y1, int x2, int y2, Uint8 r, Uint8 g, Uint8 b,
 	return ret;
 }
 
-bool Render::DrawCircle(int x, int y, int radius, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera) const
+bool Render::DrawCircle(int x, int y, int radius, Uint8 r, Uint8 g, Uint8 b, Uint8 a, bool use_camera, bool filled) const
 {
 	bool ret = true;
 	uint scale = app->win->GetScale();
@@ -219,14 +219,18 @@ bool Render::DrawCircle(int x, int y, int radius, Uint8 r, Uint8 g, Uint8 b, Uin
 		center_y += app->render->camera.y;
 	}
 
-	for(uint i = 0; i < 360; ++i)
+	for (int r = radius; r > 0; --r)
 	{
-		points[i].x = (int)(center_x + radius * cos(i * factor));
-		points[i].y = (int)(center_y + radius * sin(i * factor));
+		for (uint i = 0; i < 360; ++i)
+		{
+			points[i].x = (int)(center_x + r * cos(i * factor));
+			points[i].y = (int)(center_y + r * sin(i * factor));
+		}
+		result = SDL_RenderDrawPoints(renderer, points, 360);
+
+		if (!filled) { break; }
 	}
-
-	result = SDL_RenderDrawPoints(renderer, points, 360);
-
+	
 	if(result != 0)
 	{
 		LOG("Cannot draw quad to screen. SDL_RenderFillRect error: %s", SDL_GetError());

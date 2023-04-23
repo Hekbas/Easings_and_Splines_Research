@@ -58,7 +58,7 @@ bool SceneSplines::Start()
 
 	//Splines
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		spline->points.Add({100 + 100*i, 400});
 	}
@@ -78,22 +78,13 @@ bool SceneSplines::Update(float dt)
 	// Draw grid
 	DrawGrid(0, 0, 100, 128, 128, 128, 48);
 
-	// SPLINES ===========================
-	// Draw points + num
-	for (size_t i = 0; spline->points.At(i) != NULL; i++)
-	{
-		int posX = spline->points.At(i)->data.x;
-		int posY = spline->points.At(i)->data.y;
-
-		app->render->DrawCircle(posX, posY, 6, 255, 0, 0, 255, true);
-		app->fonts->BlitText(posX, posY, 0, std::to_string(i).c_str(), true);
-	}
-
+	// SPLINES ============================
 	// Handle input
-	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.x--; }
-	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.x++; }
-	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.y--; }
-	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.y++; }
+	double speed = 3 * (dt / 16);
+	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.x -= speed; }
+	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.x += speed; }
+	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.y -= speed; }
+	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) { spline->points.At(spline->selectedPoint)->data.y += speed; }
 
 	if (app->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN)
 		if (++spline->selectedPoint == spline->points.Count())
@@ -103,9 +94,28 @@ bool SceneSplines::Update(float dt)
 		if (--spline->selectedPoint < 0)
 			spline->selectedPoint = spline->points.Count() - 1;
 
+	// Draw spline
+	for (double t = 0.0f; t < spline->points.Count()-3; t += 0.01f)
+	{
+		iPoint point = spline->GetSplinePoint(t, true);
+		app->render->DrawCircle(point.x, point.y, 1, 255, 255, 255, 128, true);
+	}
 
+	// Draw points + num
+	for (size_t i = 0; spline->points.At(i) != NULL; i++)
+	{
+		int posX = spline->points.At(i)->data.x;
+		int posY = spline->points.At(i)->data.y;
 
+		app->render->DrawCircle(posX, posY, 6, 255, 0, 0, 255, true, true);
+		app->fonts->BlitText(posX, posY, 0, std::to_string(i).c_str(), true);
+	}
 
+	//Highlight selectedPoint
+	app->render->DrawCircle(spline->points.At(spline->selectedPoint)->data.x, spline->points.At(spline->selectedPoint)->data.y, 6, 255, 255, 0, 255, true, true);
+
+	//======================================
+	
 	//Debug
 	std::string string = std::string("- SPLINES -");
 	app->fonts->BlitText(100, 50, 0, string.c_str(), false);

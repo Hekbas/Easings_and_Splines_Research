@@ -9,7 +9,7 @@ public:
 	Spline();
 	~Spline();
 
-public:
+	iPoint GetSplinePoint(double t, bool looped = false);
 
 	List<iPoint> points;
 	int selectedPoint = 0;
