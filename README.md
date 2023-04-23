@@ -25,9 +25,9 @@ Each of the 30 functions included in the library can be classified into several 
 
 Each category includes three functions:
 
--Ease In: Starts the animation slowly and gradually accelerates towards the end.
--Ease Out: Starts the animation at full speed and gradually slows down towards the end.
--Ease InOut: Starts the animation slowly, accelerates towards the middle, and then gradually slows down towards the end.
+- Ease In: Starts the animation slowly and gradually accelerates towards the end.
+- Ease Out: Starts the animation at full speed and gradually slows down towards the end.
+- Ease InOut: Starts the animation slowly, accelerates towards the middle, and then gradually slows down towards the end.
 
  Each of the 30 functions can be called directly or by using EasingAnimation and passing the appropriate EasingType.
 
