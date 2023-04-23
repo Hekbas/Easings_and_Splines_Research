@@ -1,4 +1,3 @@
-
 #include "App.h"
 #include "Input.h"
 #include "Textures.h"
@@ -112,7 +111,7 @@ bool SceneUIAnimation::Update(float dt)
 		app->render->DrawRectangle(pauseBox, 0, 255, 0, 64, true);
 	}
 
-	//========================================
+	// =======================================
 	
 	//Info
 	std::string string = std::string("- UI ANIMATION -");

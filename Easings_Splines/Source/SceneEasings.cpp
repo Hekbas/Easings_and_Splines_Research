@@ -37,7 +37,7 @@ bool SceneEasings::Start()
 	LOG("Starting Scene");
 	bool ret = true;
 
-	easing = new Easing();
+	easing = new Easing(2);
 
 	// Set var
 	app->win->GetWindowSize(windowResolution.x, windowResolution.y);
@@ -69,36 +69,27 @@ bool SceneEasings::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) { app->render->camera.x++; }
 	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) { app->render->camera.x--; }
 
-	// Limit FPS
-	if (app->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN)
-		app->render->limitFPS = !app->render->limitFPS;
-
-
 	//Draw grid
 	DrawGrid(0, 0, 100, 128, 128, 128, 48);
 
 
-	//Easing
-	double easingAnimationTime = 2;
+	// EASING ==================================
+	
+	easing->SetFinished(false);
 
-	if (easingElapsedTime < easingAnimationTime)
+	double t = easing->TrackTime(dt);
+	double easedT = easing->EasingAnimation(300, 900, t, (EasingType)easingTypeCount);
+	app->render->DrawCircle(easedT, 300, 20, 255, 0, 0, 255, true);
+
+	// Iterate all Easing Types
+	if (easing->GetFinished())
 	{
-		easingElapsedTime += dt/1000;
-	}
-	else
-	{
-		easingElapsedTime = 0;
 		easingTypeCount++;
 		functionPoints.Clear();
 
 		if (easingTypeCount == 30)
-		{
 			easingTypeCount = 0;
-		}
 	}
-	double t = easingElapsedTime / easingAnimationTime;
-	double easedT = easing->EasingAnimation(300, 900, t, (EasingType)easingTypeCount);
-	app->render->DrawCircle(easedT, 300, 20, 255, 0, 0, 255, true);
 
 	//Draw function points
 	iPoint point = { (int)easedT, (int)(600 - (t * 300)) };
@@ -109,6 +100,8 @@ bool SceneEasings::Update(float dt)
 		app->render->DrawCircle(functionPoints.At(i)->data.x, functionPoints.At(i)->data.y, 1, 255, 255, 255, 128, true);
 	}
 
+	// =======================================
+	
 	//Info
 	std::string string = std::string("- EASINGS -");
 	app->fonts->BlitText(800, 50, 0, string.c_str(), false);
@@ -128,6 +121,7 @@ bool SceneEasings::PostUpdate()
 {
 	bool ret = true;
 
+	//Change Scene
 	if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
 		this->Disable();
@@ -139,6 +133,11 @@ bool SceneEasings::PostUpdate()
 		app->sceneUIAnimation->Enable();
 	}
 
+	// Limit FPS
+	if (app->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN)
+		app->render->limitFPS = !app->render->limitFPS;
+
+	// Exit
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
 
