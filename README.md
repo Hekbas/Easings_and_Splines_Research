@@ -1,4 +1,4 @@
-# {Easings & Splines}
+# Easings and Splines
 
 ## Description
 
@@ -8,44 +8,28 @@ This project is a collection of C++ functions for creating and manipulating easi
 
 The necessary files can be downloaded directly from the GitHub repository or in the Releases section.
 
-## Usage
-
-
 ## Documentation
 
-Each of the functions included below can be called directly or by using EasingAnimation and passing the appropriate EasingType.
+Each of the 30 functions included in the library can be classified into several categories based on their behavior and the way they interpolate values over time:
 
-- EaseInSin
-- EaseOutSin
-- EaseInOutSin
-- EaseInQuad
-- EaseOutQuad
-- EaseInOutQuad
-- EaseInCubic
-- EaseOutCubic
-- EaseInOutCubic
-- EaseInQuart
-- EaseOutQuart
-- EaseInOutQuart
-- EaseInQuint
-- EaseOutQuint
-- EaseInOutQuint
-- EaseInExp
-- EaseOutExp
-- EaseInOutExp
-- EaseInCirc
-- EaseOutCirc
-- EaseInOutCirc
-- EaseInBack
-- EaseOutBack
-- EaseInOutBack
-- EaseInElastic
-- EaseOutElastic
-- EaseInOutElastic
-- EaseInBounce
-- EaseOutBounce
-- EaseInOutBounce
- 
+- Sine: Curved path, similar to the shape of a sine wave, gradual acceleration and deceleration.
+- Quadratic: Accelerate or decelerate the motion at a constant rate.
+- Cubic: Accelerate or decelerate the motion more aggressively than quadratic easing functions.
+- Quartic: More aggressive than Cubic.
+- Quintic: More aggressive than Quartic.
+- Exponential: Accelerate or decelerate the motion exponentially.
+- Circular: Create a motion that follows a circular path, gradual acceleration and deceleration.
+- Back: Create a motion that overshoots its target and then returns to it.
+- Elastic: Simulate a spring-like motion where the animation overshoots its target and then bounces back.
+- Bounce: Simulate a bouncing ball by adding a series of small, quick bounces.
+
+Each category includes three functions:
+
+-Ease In: Starts the animation slowly and gradually accelerates towards the end.
+-Ease Out: Starts the animation at full speed and gradually slows down towards the end.
+-Ease InOut: Starts the animation slowly, accelerates towards the middle, and then gradually slows down towards the end.
+
+ Each of the 30 functions can be called directly or by using EasingAnimation and passing the appropriate EasingType.
 
 ## Controls
 
