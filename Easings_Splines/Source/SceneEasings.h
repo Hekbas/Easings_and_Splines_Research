@@ -38,6 +38,8 @@ public:
 	//Draws grid based on window size
 	void DrawGrid(int OX, int OY, int gridSpacing, uchar r = (255), uchar g = (255), uchar b = (255), uchar a = (255));
 
+	const char* GetEasingTypeString(EasingType easingType);
+
 public:
 
 	uiPoint windowResolution;
@@ -49,11 +51,9 @@ public:
 	List<iPoint> functionPoints;
 
 private:
-	SDL_Texture* img;
 	Easing* easing;
-
 	int font_text;
-	char pointsText[6] = { "\0" };
+
 };
 
 #endif // __SCENE_H__

@@ -52,7 +52,7 @@ bool SceneEasings::Start()
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
-	easingTypeCount = 8;
+	easingTypeCount = 0;
 	easingElapsedTime = 0;
 
 	return ret;
@@ -83,7 +83,7 @@ bool SceneEasings::Update(float dt)
 
 
 	//Easing
-	double easingAnimationTime = 3;
+	double easingAnimationTime = 2;
 
 	if (easingElapsedTime < easingAnimationTime)
 	{
@@ -104,7 +104,7 @@ bool SceneEasings::Update(float dt)
 	double easedT = easing->EasingAnimation(300, 900, t, (EasingType)easingTypeCount);
 	app->render->DrawCircle(easedT, 300, 20, 255, 0, 0, 255, true);
 
-	//Draw function
+	//Draw function points
 	iPoint point = { (int)easedT, (int)(600 - (t * 300)) };
 	functionPoints.Add(point);
 
@@ -113,12 +113,15 @@ bool SceneEasings::Update(float dt)
 		app->render->DrawCircle(functionPoints.At(i)->data.x, functionPoints.At(i)->data.y, 1, 255, 255, 255, 128, true);
 	}
 
-	//Debug
-	std::string string = std::string("EASING TYPE:  ") + std::to_string(20);
-	app->fonts->BlitText(200, 50, 0, string.c_str(), false);
+	//Info
+	std::string string = std::string("- EASINGS -");
+	app->fonts->BlitText(800, 50, 0, string.c_str(), false);
 
-	string = std::string("ELAPSED TIME: ") + std::to_string(easingElapsedTime);
-	app->fonts->BlitText(200, 100, 0, string.c_str(), false);
+	string = std::string("") + GetEasingTypeString((EasingType)easingTypeCount);
+	app->fonts->BlitText(100, 50, 0, string.c_str(), false);
+
+	string = std::string("") + std::to_string(easingElapsedTime);
+	app->fonts->BlitText(100, 100, 0, string.c_str(), false);
 
 	
 	return true;
@@ -146,7 +149,7 @@ bool SceneEasings::CleanUp()
 {
 	LOG("Freeing scene");
 
-	app->audio->PlayMusic("");
+	delete easing;
 
 	return true;
 }
@@ -168,5 +171,43 @@ void SceneEasings::DrawGrid(int OX, int OY, int gridSpacing, uchar r, uchar g, u
 	for (size_t i = 0; i < gridStepsY; i++)
 	{
 		app->render->DrawLine(0, OY + i * gridSpacing, sizeX, OY + i * gridSpacing, r, g, b, a);
+	}
+}
+
+const char* SceneEasings::GetEasingTypeString(EasingType easingType)
+{
+	switch (easingType)
+	{
+	case EasingType::EASE_IN_SIN:			return "SIN (IN)";
+	case EasingType::EASE_OUT_SIN:			return "SIN (OUT)";
+	case EasingType::EASE_INOUT_SIN:		return "SIN (INOUT)";
+	case EasingType::EASE_IN_QUAD:			return "QUAD (IN)";
+	case EasingType::EASE_OUT_QUAD:			return "QUAD (OUT)";
+	case EasingType::EASE_INOUT_QUAD:		return "QUAD (INOUT)";
+	case EasingType::EASE_IN_CUBIC:			return "CUBIC (IN)";
+	case EasingType::EASE_OUT_CUBIC:		return "CUBIC (OUT)";
+	case EasingType::EASE_INOUT_CUBIC:		return "CUBIC (INOUT)";
+	case EasingType::EASE_IN_QUART:			return "QUART (IN)";
+	case EasingType::EASE_OUT_QUART:		return "QUART (OUT)";
+	case EasingType::EASE_INOUT_QUART:		return "QUART (INOUT)";
+	case EasingType::EASE_IN_QUINT:			return "QUINT (IN)";
+	case EasingType::EASE_OUT_QUINT:		return "QUINT (OUT)";
+	case EasingType::EASE_INOUT_QUINT:		return "QUINT (INOUT)";
+	case EasingType::EASE_IN_EXP:			return "EXP (IN)";
+	case EasingType::EASE_OUT_EXP:			return "EXP (OUT)";
+	case EasingType::EASE_INOUT_EXP:		return "EXP (INOUT)";
+	case EasingType::EASE_IN_CIRC:			return "CIRC (IN)";
+	case EasingType::EASE_OUT_CIRC:			return "CIRC (OUT)";
+	case EasingType::EASE_INOUT_CIRC:		return "CIRC (INOUT)";
+	case EasingType::EASE_IN_BACK:			return "BACK (IN)";
+	case EasingType::EASE_OUT_BACK:			return "BACK (OUT)";
+	case EasingType::EASE_INOUT_BACK:		return "BACK (INOUT)";
+	case EasingType::EASE_IN_ELASTIC:		return "ELASTIC (IN)";
+	case EasingType::EASE_OUT_ELASTIC:		return "ELASTIC (OUT)";
+	case EasingType::EASE_INOUT_ELASTIC:	return "ELASTIC (INOUT)";
+	case EasingType::EASE_IN_BOUNCE:		return "BOUNCE (IN)";
+	case EasingType::EASE_OUT_BOUNCE:		return "BOUNCE (OUT)";
+	case EasingType::EASE_INOUT_BOUNCE:		return "BOUNCE (INOUT)";
+	default: return "UKNOWN";
 	}
 }

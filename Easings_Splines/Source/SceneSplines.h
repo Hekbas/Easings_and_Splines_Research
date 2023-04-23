@@ -48,11 +48,9 @@ public:
 
 
 private:
-	SDL_Texture* img;
 	Spline* spline;
 
 	int font_text;
-	char pointsText[6] = { "\0" };
 };
 
 #endif // __SCENE_EASINGS_H__

@@ -16,13 +16,11 @@
 SceneSplines::SceneSplines(bool startEnabled) : Module(startEnabled)
 {
 	name.Create("scene");
-	spline = new Spline();
 }
 
 // Destructor
 SceneSplines::~SceneSplines()
 {
-	delete spline;
 }
 
 // Called before render is available
@@ -39,6 +37,8 @@ bool SceneSplines::Start()
 {
 	LOG("Starting Scene");
 	bool ret = true;
+
+	spline = new Spline();
 
 	// Get xml node
 	pugi::xml_node configNode = app->LoadConfigFileToVar();
@@ -116,9 +116,9 @@ bool SceneSplines::Update(float dt)
 
 	//======================================
 	
-	//Debug
+	//Info
 	std::string string = std::string("- SPLINES -");
-	app->fonts->BlitText(100, 50, 0, string.c_str(), false);
+	app->fonts->BlitText(800, 50, 0, string.c_str(), false);
 
 	string = std::string("NODES: ") + std::to_string(spline->points.Count());
 	app->fonts->BlitText(100, 100, 0, string.c_str(), false);
@@ -153,7 +153,7 @@ bool SceneSplines::CleanUp()
 {
 	LOG("Freeing scene");
 
-	app->audio->PlayMusic("");
+	delete spline;
 
 	return true;
 }
