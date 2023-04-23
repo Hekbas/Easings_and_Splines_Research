@@ -41,11 +41,8 @@ bool SceneSplines::Start()
 	spline = new Spline();
 
 	// Get xml node
-	pugi::xml_node configNode = app->LoadConfigFileToVar();
+	pugi::xml_node configNode = app->GetNode();
 	pugi::xml_node config = configNode.child(name.GetString());
-
-	// Load font
-	font_text = app->fonts->Load(config.child("texturepaths").attribute("font").as_string(), "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,;:$#'! /?%&()@ -+=      ", 7);
 
 	// Set var
 	app->win->GetWindowSize(windowResolution.x, windowResolution.y);

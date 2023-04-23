@@ -10,11 +10,24 @@
 
 Fonts::Fonts(bool start_enabled) : Module(start_enabled)
 {
+	name.Create("font");
 }
 
 Fonts::~Fonts()
 {
 
+}
+
+bool Fonts::Start()
+{
+	// Get xml node
+	pugi::xml_node configNode = app->GetNode();
+	pugi::xml_node config = configNode.child(name.GetString());
+
+	// Load font
+	app->fonts->Load(config.child("texturepaths").attribute("font").as_string(), "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,;:$#'! /?%&()@ -+=      ", 7);
+
+	return true;
 }
 
 // Load new texture from file path

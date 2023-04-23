@@ -36,12 +36,7 @@ bool SceneEasings::Start()
 	LOG("Starting Scene");
 	bool ret = true;
 
-	// Get xml node
-	pugi::xml_node configNode = app->LoadConfigFileToVar();
-	pugi::xml_node config = configNode.child(name.GetString());
-
-	// Load font
-	font_text = app->fonts->Load(config.child("texturepaths").attribute("font").as_string(), "ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789.,;:$#'! /?%&()@ -+=      ", 7);
+	easing = new Easing();
 
 	// Set var
 	app->win->GetWindowSize(windowResolution.x, windowResolution.y);
@@ -149,6 +144,7 @@ bool SceneEasings::CleanUp()
 {
 	LOG("Freeing scene");
 
+	functionPoints.Clear();
 	delete easing;
 
 	return true;

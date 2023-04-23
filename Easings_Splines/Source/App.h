@@ -50,7 +50,7 @@ public:
 	const char* GetOrganization() const;
 
 	// Load config file to var
-	pugi::xml_node LoadConfigFileToVar();
+	pugi::xml_node GetNode();
 
 private:
 

@@ -52,7 +52,6 @@ public:
 
 private:
 	Easing* easing;
-	int font_text;
 
 };
 

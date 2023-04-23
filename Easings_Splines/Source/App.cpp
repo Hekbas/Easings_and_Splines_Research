@@ -24,8 +24,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	tex = new Textures(true);
 	fonts = new Fonts(true);
 	audio = new Audio(true);
-	sceneEasings = new SceneEasings(false);
-	sceneSplines = new SceneSplines(true);
+	sceneEasings = new SceneEasings(true);
+	sceneSplines = new SceneSplines(false);
 	render = new Render(true);
 
 
@@ -312,19 +312,15 @@ const char* App::GetOrganization() const
 	return organization.GetString();
 }
 
-pugi::xml_node App::LoadConfigFileToVar()
+pugi::xml_node App::GetNode()
 {
-	pugi::xml_node ret;
-	// Load config.xml file using load_file() method from the xml_document class
+	pugi::xml_node node;
 	pugi::xml_parse_result parseResult = configFile.load_file("config.xml");
 
-	// Check result for loading errors
-	if (parseResult) {
-		ret = configFile.child("config");
-	}
-	else {
+	if (parseResult)
+		node = configFile.child("config");
+	else
 		LOG("Error in App::LoadConfig(): %s", parseResult.description());
-	}
 
-	return ret;
+	return node;
 }

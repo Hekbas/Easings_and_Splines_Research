@@ -48,9 +48,8 @@ public:
 
 
 private:
-	Spline* spline;
 
-	int font_text;
+	Spline* spline;
 };
 
 #endif // __SCENE_EASINGS_H__

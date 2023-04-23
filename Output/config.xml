@@ -15,12 +15,17 @@
 		<resizable value="false"/>
 		<fullscreen_window value="false"/>
 	</window>
+
+	<font>
+		<texturepaths font="Assets/Fonts/sprite_font_white_big.png"/>
+	</font>
+	
 	<audio>
 		<music volume="128"/>
 		<fx volume="128"/>
 	</audio>
 	<scene>
-		<texturepaths font="Assets/Fonts/sprite_font_white_big.png"/>
+		
 		<map>
 			<mapfolder path="Assets/Maps/"/>
 		</map>
