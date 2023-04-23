@@ -99,7 +99,7 @@ public:
 
 
     double TrackTime(double dt);
-    double EasingAnimation(double start, double end, double time, EasingType easingType);
+    double EasingAnimation(int start, int end, double time, EasingType easingType);
 
 
     double GetElapsedTime() const { return elapsedTime; }

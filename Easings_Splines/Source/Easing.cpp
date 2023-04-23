@@ -177,7 +177,7 @@ double Easing::EaseInOutBounce(double t) {
 }
 
 
-double Easing::EasingAnimation(double start, double end, double time, EasingType easingType)
+double Easing::EasingAnimation(int start, int end, double time, EasingType easingType)
 {
     // Lambda function:
     // [capture list](parameters) -> return type {function body}

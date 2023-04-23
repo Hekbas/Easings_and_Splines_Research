@@ -71,11 +71,7 @@ bool SceneUIAnimation::Update(float dt)
 	DrawGrid(0, 0, 100, 128, 128, 128, 48);
 
 
-	
-
-
 	// UI ANIMATION ==========================
-	// Pause
 
 	//Input
 	if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
@@ -84,22 +80,37 @@ bool SceneUIAnimation::Update(float dt)
 		easingPause->SetFinished(false);
 	}
 
-	if (bPause && !easingPause->GetFinished())
+	if (!easingPause->GetFinished()) // Animation not finished? 
 	{
+		int a, b;
+		EasingType easing;
+
+		if (bPause)
+		{
+			a = 50;
+			b = 150;
+			easing = EasingType::EASE_OUT_ELASTIC;
+		}
+		else
+		{
+			a = 150;
+			b = -50;
+			easing = EasingType::EASE_IN_EXP;
+		}
+
 		double t = easingPause->TrackTime(dt);
-		double easedY = easingPause->EasingAnimation(50, 150, t, EasingType::EASE_OUT_ELASTIC);
+		double easedY = easingPause->EasingAnimation(a, b, t, easing);
 
 		SDL_Rect pauseBox = { 450, easedY, 300, 400 };
 		app->render->DrawRectangle(pauseBox, 0, 255, 0, 255, false);
 		app->render->DrawRectangle(pauseBox, 0, 255, 0, 64, true);
 	}
-
-	
-
-
-
-
-	// Button
+	else if (bPause)
+	{
+		SDL_Rect pauseBox = { 450, 150, 300, 400 };
+		app->render->DrawRectangle(pauseBox, 0, 255, 0, 255, false);
+		app->render->DrawRectangle(pauseBox, 0, 255, 0, 64, true);
+	}
 
 	//========================================
 	
@@ -107,8 +118,6 @@ bool SceneUIAnimation::Update(float dt)
 	std::string string = std::string("- UI ANIMATION -");
 	app->fonts->BlitText(800, 50, 0, string.c_str(), false);
 
-	//string = std::string("NODES: ") + std::to_string(spline->points.Count());
-	//app->fonts->BlitText(100, 100, 0, string.c_str(), false);
 
 	// Limit FPS
 	if (app->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN)
