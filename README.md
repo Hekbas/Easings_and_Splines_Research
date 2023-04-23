@@ -3,6 +3,7 @@
 ## Description
 
 This project is a collection of C++ functions for creating and manipulating easings and splines. It includes 30 easing functions that can be used to animate user interfaces or create smooth animations.
+It also includes examples in different scenes for testing.
 
 ## Installation
 
