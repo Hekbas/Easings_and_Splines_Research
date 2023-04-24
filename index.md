@@ -69,9 +69,9 @@ double Easing::EasingAnimation(int start, int end, double time, EasingType easin
         switch (easingType)
         {
         case EasingType::EASE_IN_SIN:           return EaseInSin(t);
+        case EasingType::EASE_OUT_SIN:          return EaseOutSin(t);    
+        case EasingType::EASE_INOUT_SIN:        return EaseInOutSin(t);
         // All other Easing Types...
-        case EasingType::EASE_INOUT_BOUNCE:     return EaseInOutBounce(t);
-        default:                                return EaseInSin(t);
         }
     };
 
@@ -137,3 +137,4 @@ Implement saving spline points in .xml for quickly saving points after editing t
 
 [javidx9](https://www.youtube.com/@javidx9)
 
+[Easing functions](https://github.com/nicolausYes/easing-functions)
