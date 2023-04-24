@@ -39,7 +39,7 @@ bool SceneSplines::Start()
 	LOG("Starting Scene");
 	bool ret = true;
 
-	spline = new Spline();
+	spline = new Spline(10);
 
 	// Get xml node
 	pugi::xml_node configNode = app->GetNode();
@@ -54,7 +54,7 @@ bool SceneSplines::Start()
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
-	//Splines
+	//Spline Nodes
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -76,6 +76,7 @@ bool SceneSplines::Update(float dt)
 	// Draw grid
 	DrawGrid(0, 0, 100, 128, 128, 128, 48);
 
+
 	// SPLINES ============================
 	// Handle input
 	double speed = 3 * (dt / 16);
@@ -92,10 +93,23 @@ bool SceneSplines::Update(float dt)
 		if (--spline->selectedPoint < 0)
 			spline->selectedPoint = spline->points.Count() - 1;
 
+	if (app->input->GetKey(SDL_SCANCODE_C) == KEY_DOWN) { cameraFollowSpline = !cameraFollowSpline; }
+
+
+	// Calculate Spline point and set camera position
+	if (cameraFollowSpline)
+	{
+		double t = spline->TrackTime(dt);
+		iPoint point = spline->GetSplinePoint(t, false);
+
+		app->render->camera.x = -point.x + screenCenter.x;
+		app->render->camera.y = -point.y + screenCenter.y;
+	}	
+
 	// Draw spline
 	for (double t = 0.0f; t < spline->points.Count()-3; t += 0.01f)
 	{
-		iPoint point = spline->GetSplinePoint(t, true);
+		iPoint point = spline->GetSplinePoint(t, false);
 		app->render->DrawCircle(point.x, point.y, 1, 255, 255, 255, 128, true);
 	}
 
@@ -114,6 +128,7 @@ bool SceneSplines::Update(float dt)
 
 	//======================================
 	
+
 	//Info
 	std::string string = std::string("- SPLINES -");
 	app->fonts->BlitText(800, 50, 0, string.c_str(), false);
@@ -136,12 +151,12 @@ bool SceneSplines::PostUpdate()
 
 	if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN)
 	{
-		app->sceneSplines->Disable();
+		this->Disable();
 		app->sceneEasings->Enable();
 	}
-	else if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
+	else if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
-		app->sceneSplines->Disable();
+		this->Disable();
 		app->sceneUIAnimation->Enable();
 	}
 

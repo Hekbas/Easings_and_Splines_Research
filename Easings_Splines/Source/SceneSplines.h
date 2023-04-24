@@ -41,13 +41,12 @@ public:
 	uiPoint windowResolution;
 	uiPoint screenCenter;
 
-	int easingTypeCount = 0;
-	double easingElapsedTime = 0;
-
+	double elapsedTime = 0;
 
 private:
 
 	Spline* spline;
+	bool cameraFollowSpline = false;
 };
 
 #endif // __SCENE_EASINGS_H__

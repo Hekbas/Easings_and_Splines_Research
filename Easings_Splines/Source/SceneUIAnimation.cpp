@@ -38,7 +38,7 @@ bool SceneUIAnimation::Start()
 	LOG("Starting sceneUIAnimation");
 	bool ret = true;
 
-	easingPause = new Easing(1);
+	easingPause = new Easing(0.8);
 
 	// Get xml node
 	pugi::xml_node configNode = app->GetNode();
@@ -94,7 +94,7 @@ bool SceneUIAnimation::Update(float dt)
 		{
 			a = 150;
 			b = -50;
-			easing = EasingType::EASE_IN_EXP;
+			easing = EasingType::EASE_IN_BACK;
 		}
 
 		double t = easingPause->TrackTime(dt);
@@ -136,7 +136,7 @@ bool SceneUIAnimation::PostUpdate()
 		this->Disable();
 		app->sceneEasings->Enable();
 	}
-	else if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+	else if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
 		this->Disable();
 		app->sceneSplines->Enable();

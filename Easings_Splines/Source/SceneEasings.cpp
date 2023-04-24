@@ -63,12 +63,6 @@ bool SceneEasings::PreUpdate()
 // Called each loop iteration
 bool SceneEasings::Update(float dt)
 {
-	//Camera movement
-	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) { app->render->camera.y++; }
-	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) { app->render->camera.y--; }
-	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) { app->render->camera.x++; }
-	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) { app->render->camera.x--; }
-
 	//Draw grid
 	DrawGrid(0, 0, 100, 128, 128, 128, 48);
 
@@ -125,13 +119,14 @@ bool SceneEasings::PostUpdate()
 	if (app->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
 		this->Disable();
-		app->sceneSplines->Enable();
+		app->sceneUIAnimation->Enable();
 	}
 	else if (app->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
 	{
 		this->Disable();
-		app->sceneUIAnimation->Enable();
+		app->sceneSplines->Enable();
 	}
+	
 
 	// Limit FPS
 	if (app->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN)

@@ -26,8 +26,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	fonts = new Fonts(true);
 	audio = new Audio(true);
 	sceneEasings = new SceneEasings(false);
-	sceneSplines = new SceneSplines(false);
-	sceneUIAnimation = new SceneUIAnimation(true);
+	sceneSplines = new SceneSplines(true);
+	sceneUIAnimation = new SceneUIAnimation(false);
 	render = new Render(true);
 
 
