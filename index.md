@@ -132,6 +132,8 @@ Implement saving spline points in .xml for quickly saving points after editing t
 
 ## Bibliography
 [The Continuity of Splines](https://www.youtube.com/watch?v=jvPPXbo87ds)
+
 [An In-Depth look at Lerp, Smoothstep, and Shaping Functions](https://www.youtube.com/watch?v=YJB1QnEmlTs)
+
 [javidx9](https://www.youtube.com/@javidx9)
 
