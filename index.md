@@ -113,7 +113,18 @@ double Easing::TrackTime(double dt)
     }
 }
 ```
-> Note that dt needs to be divided by 1000 since totalTime is expressed in seconds.
+> Note that __'dt'__ needs to be divided by 1000 since totalTime is expressed in seconds.
+
+#### Example
+
+The code below ilustrates how to implement an animation into a rectangle.
+```c++
+double t = easingPause->TrackTime(dt);
+double easedY = easing->EasingAnimation(a, b, t, easing);
+SDL_Rect rectangle = { x, easedY, w, h };
+app->render->DrawRectangle(rectangle, r, g, b, a, false);
+```
+
 
 
 ## Improvements
