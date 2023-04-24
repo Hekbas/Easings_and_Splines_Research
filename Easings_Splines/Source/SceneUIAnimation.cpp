@@ -79,7 +79,8 @@ bool SceneUIAnimation::Update(float dt)
 		easingPause->SetFinished(false);
 	}
 
-	if (!easingPause->GetFinished()) // Animation not finished? 
+	// Animation not finished? 
+	if (!easingPause->GetFinished()) 
 	{
 		int a, b;
 		EasingType easing;
@@ -97,7 +98,7 @@ bool SceneUIAnimation::Update(float dt)
 			easing = EasingType::EASE_IN_BACK;
 		}
 
-		// TODO 1:
+		// TODO 1: Implement easings on pause menu
 		// Calculate interpolated position (tracktime, easinganimaion),
 		// and print to screen (DrawRectangle)
 		double t = easingPause->TrackTime(dt);
