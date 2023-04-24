@@ -55,7 +55,7 @@ The class also includes 'EasingAnimation(int start, int end, double time, Easing
 - **time:** value 0 - 1.
 - **easingType:** the type of easing to use.
 
-__'EasingAnimation'__ uses the function specified by __'easingType'__ to calculate the interpolated position at the time given by __'t'__.
+__'EasingAnimation()'__ uses the function specified by __'easingType'__ to calculate the interpolated position at the time given by __'t'__.
 
 ```c++
 double Easing::EasingAnimation(int start, int end, double time, EasingType easingType)
@@ -79,6 +79,14 @@ double Easing::EasingAnimation(int start, int end, double time, EasingType easin
     return start + (end - start) * t;
 }
 ```
+
+All the parameters requiered by the function seem pretty straight forward asides from __'t'__. How do we know what value we need to pass to the function?
+
+We'll need to keep track of the following:
+- Time passed since the start of the animation.
+- Total duration of the animation.
+- Status of the animation (has it finished?).
+
 
 
 
