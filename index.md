@@ -80,7 +80,7 @@ double Easing::EasingAnimation(int start, int end, double time, EasingType easin
 }
 ```
 
-All the parameters requiered by the function seem pretty straight forward asides from __'t'__. How do we know what value we need to pass to the function?
+All the parameters requiered by the function seem pretty straightforward asides from __'t'__. How do we know what value we need to pass to the function?
 
 We'll need to keep track of the following:
 - Time passed since the start of the animation.
@@ -128,7 +128,10 @@ app->render->DrawRectangle(rectangle, r, g, b, a, false);
 
 
 ## Improvements
-
+Implement saving spline points in .xml for quickly saving points after editing the spline. 
 
 ## Bibliography
-The project is licensed under the MIT License.
+[The Continuity of Splines](https://www.youtube.com/watch?v=jvPPXbo87ds)
+[An In-Depth look at Lerp, Smoothstep, and Shaping Functions](https://www.youtube.com/watch?v=YJB1QnEmlTs)
+[javidx9](https://www.youtube.com/@javidx9)
+
