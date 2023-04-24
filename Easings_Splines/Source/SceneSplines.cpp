@@ -102,11 +102,8 @@ bool SceneSplines::Update(float dt)
 		// TODO 2: Make the camera follow the spline
 		// Remember tracktime, GetSplinePoint
 		// tips: screenCenter, camera swapped (+/-)
-		double t = spline->TrackTime(dt);
-		iPoint point = spline->GetSplinePoint(t, false);
+		
 
-		app->render->camera.x = -point.x + screenCenter.x;
-		app->render->camera.y = -point.y + screenCenter.y;
 	}	
 
 	// Draw spline
