@@ -87,12 +87,33 @@ We'll need to keep track of the following:
 - Total duration of the animation.
 - Status of the animation (has it finished?).
 
+And for this purpose, I've added this variables into the Easings Class:
 
+```c++
+double elapsedTime = 0;
+double totalTime = 0;
+bool bFinished = true;
+```
 
+Next, __'TrackTime(double dt)'__ will be used to calculate the time passed since the beginning of the animation and returning a value from 0-1, it does so by adding __'dt'__ to __'elapsedTime'__ and dividing by __'totalTime'__. It also checks if the animation has finished.
 
-
-
-
+```c++
+double Easing::TrackTime(double dt)
+{
+    if (elapsedTime < totalTime)
+    {
+        elapsedTime += (dt / 1000);
+        return elapsedTime / totalTime;
+    }
+    else
+    {
+        bFinished = true;
+        elapsedTime = 0;
+        return 1;
+    }
+}
+```
+> Note that dt needs to be divided by 1000 since totalTime is expressed in seconds.
 
 
 ## Improvements
