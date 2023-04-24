@@ -49,7 +49,6 @@ bool SceneEasings::Start()
 	app->render->camera.y = 0;
 
 	easingTypeCount = 0;
-	easingElapsedTime = 0;
 
 	return ret;
 }
@@ -103,7 +102,7 @@ bool SceneEasings::Update(float dt)
 	string = std::string("") + GetEasingTypeString((EasingType)easingTypeCount);
 	app->fonts->BlitText(100, 50, 0, string.c_str(), false);
 
-	string = std::string("") + std::to_string(easingElapsedTime);
+	string = std::string("") + std::to_string(easing->GetElapsedTime());
 	app->fonts->BlitText(100, 100, 0, string.c_str(), false);
 
 	

@@ -43,8 +43,6 @@ public:
 	uiPoint windowResolution;
 	uiPoint screenCenter;
 
-	
-
 
 private:
 

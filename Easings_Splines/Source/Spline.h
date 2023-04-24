@@ -13,6 +13,9 @@ public:
 	iPoint GetSplinePoint(double t, bool looped = false);
 	double TrackTime(double dt);
 
+	double GetElapsedTime() const { return elapsedTime; }
+	void SetElapsedTime(double elapsedTime) { this->elapsedTime = elapsedTime; }
+
 	List<iPoint> points;
 	int selectedPoint = 0;
 

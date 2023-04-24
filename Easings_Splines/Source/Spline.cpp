@@ -51,7 +51,7 @@ iPoint Spline::GetSplinePoint(double t, bool looped)
 
 double Spline::TrackTime(double dt)
 {
-	if (elapsedTime < totalTime)
+	if (elapsedTime < totalTime - 0.1 )
 	{
 		elapsedTime += (dt / 1000);
 		return (elapsedTime / totalTime) * (points.Count() - 3);
@@ -60,6 +60,6 @@ double Spline::TrackTime(double dt)
 	{
 		bFinished = true;
 		elapsedTime = 0;
-		return 1 * (points.Count() - 3);
+		return 0;
 	}
 }

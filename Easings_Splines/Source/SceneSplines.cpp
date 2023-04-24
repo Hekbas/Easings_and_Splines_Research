@@ -39,7 +39,7 @@ bool SceneSplines::Start()
 	LOG("Starting Scene");
 	bool ret = true;
 
-	spline = new Spline(10);
+	spline = new Spline(8);
 
 	// Get xml node
 	pugi::xml_node configNode = app->GetNode();
@@ -137,6 +137,9 @@ bool SceneSplines::Update(float dt)
 	app->fonts->BlitText(800, 50, 0, string.c_str(), false);
 
 	string = std::string("NODES: ") + std::to_string(spline->points.Count());
+	app->fonts->BlitText(100, 50, 0, string.c_str(), false);
+
+	string = std::string("") + std::to_string(spline->GetElapsedTime());
 	app->fonts->BlitText(100, 100, 0, string.c_str(), false);
 
 	// Limit FPS

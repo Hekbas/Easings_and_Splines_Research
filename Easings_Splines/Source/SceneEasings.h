@@ -46,7 +46,6 @@ public:
 	uiPoint screenCenter;
 
 	int easingTypeCount = 0;
-	double easingElapsedTime = 0;
 
 	List<iPoint> functionPoints;
 
