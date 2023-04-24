@@ -97,6 +97,9 @@ bool SceneUIAnimation::Update(float dt)
 			easing = EasingType::EASE_IN_BACK;
 		}
 
+		// TODO 1:
+		// Calculate interpolated position (tracktime, easinganimaion),
+		// and print to screen (DrawRectangle)
 		double t = easingPause->TrackTime(dt);
 		double easedY = easingPause->EasingAnimation(a, b, t, easing);
 
@@ -106,6 +109,7 @@ bool SceneUIAnimation::Update(float dt)
 	}
 	else if (bPause)
 	{
+		// static pause menu (animation finished, menu open)
 		SDL_Rect pauseBox = { 450, 150, 300, 400 };
 		app->render->DrawRectangle(pauseBox, 0, 255, 0, 255, false);
 		app->render->DrawRectangle(pauseBox, 0, 255, 0, 64, true);
