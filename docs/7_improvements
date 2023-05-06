@@ -1,0 +1,10 @@
+---
+layout: default
+title: Improvements
+nav_order: 7
+---
+
+# Improvements
+
+Implement saving/loading spline points with .xml after editing the spline.
+Velocity along the spline is not constant.
