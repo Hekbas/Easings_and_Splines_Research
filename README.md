@@ -2,7 +2,9 @@
 
 This project is a collection of C++ functions for creating and manipulating easings and splines. It includes 30 easing functions that can be used to animate user interfaces or create smooth animations.
 It also includes examples in different scenes for testing.
+
 You can find the research and documentation for this project [here](https://hekbas.github.io/Easings_and_Splines_Research).
+
 View the ppt used in the presentation [here](https://docs.google.com/presentation/d/1q1coJHP-QpBSi6BN0cDEZzHbJv7HHC9ORueyxNqs3_o/edit?usp=sharing).
 
 ## Installation
