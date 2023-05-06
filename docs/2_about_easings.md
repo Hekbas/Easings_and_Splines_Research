@@ -12,4 +12,4 @@ Easing techniques are used in a wide variety of applications, and have a signifi
 
 For example, when a character jumps, easing can be used to make the jump animation appear more natural by gradually accelerating the character's movement upward and then gradually slowing down their descent. It can also be used to create more responsive controls and to smooth camera transitions between different game areas or angles.
 
-![easing_camera](https://github.com/Hekbas/Easings_and_Splines_Research/blob/WebPage_New/assets/images/easing_camera.gif)
+![](https://github.com/Hekbas/Easings_and_Splines_Research/blob/WebPage_New/assets/images/easing_camera.gif)
