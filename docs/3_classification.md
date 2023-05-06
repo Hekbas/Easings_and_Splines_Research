@@ -8,7 +8,7 @@ nav_order: 3
 
 Easing functions can be classified into several categories based on their behavior and the way they interpolate values over time. I have classified the ones used in this project into the following:
 
-![](https://github.com/Hekbas/Easings_and_Splines_Research/blob/WebPage_New/assets/images/easing_types.gif)
+![](https://github.com/Hekbas/Easings_and_Splines_Research/blob/WebPage_New/assets/images/easing_types.gif?raw=true)
 
 - **Sine:** Curved path, similar to the shape of a sine wave, gradual acceleration and deceleration.
 They are often used for animations that require a fluid and organic movement, such as the movement of waves or the motion of a pendulum.
@@ -38,7 +38,7 @@ They can be used to create a playful or whimsical effect in animations.
 
 Each category includes three types of functions:
 
-![](https://github.com/Hekbas/Easings_and_Splines_Research/blob/WebPage_New/assets/images/ease_inout.gif)
+![](https://github.com/Hekbas/Easings_and_Splines_Research/blob/WebPage_New/assets/images/ease_inout.gif?raw=true)
 
 - **Ease In:** Starts the animation slowly and gradually accelerates towards the end.
 - **Ease Out:** Starts the animation at full speed and gradually slows down towards the end.
