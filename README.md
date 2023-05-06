@@ -32,8 +32,10 @@ Each category includes three functions:
 
 ## Controls
 - Change Between Scenes (1, 2, 3)
-- Change Selected Spline Point (Q, E)
+- Start Pause MEnu Animation (P)
+- Switch Selected Spline Point (Q, E)
 - Move Selected Spline Point (W, A, S, D)
+- Start Camera Movement on Spline (C)
 - Limit FPS (F10)
 
 ## Contributing
