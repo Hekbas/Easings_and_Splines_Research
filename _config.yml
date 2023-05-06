@@ -1,5 +1,5 @@
 title: Easings & Splines
-description: A Jekyll theme for documentation
+description: 
 baseurl: "/Easings_and_Splines_Research" # the subpath of your site, e.g. /blog
 url: "https://hekbas.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 repository: /Easings_and_Splines_Research # for github-metadata
@@ -84,7 +84,7 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 
 # External navigation links
 nav_external_links:
-  - title: Just the Docs on GitHub
+  - title: GitHub Repository
     url: https://github.com/Hekbas/Easings_and_Splines_Research
 
 # Footer content
