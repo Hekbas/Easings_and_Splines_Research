@@ -8,6 +8,8 @@ nav_order: 3
 
 Easing functions can be classified into several categories based on their behavior and the way they interpolate values over time. I have classified the ones used in this project into the following:
 
+![](https://github.com/Hekbas/Easings_and_Splines_Research/blob/WebPage_New/assets/images/easing_types.gif)
+
 - **Sine:** Curved path, similar to the shape of a sine wave, gradual acceleration and deceleration.
 They are often used for animations that require a fluid and organic movement, such as the movement of waves or the motion of a pendulum.
 
