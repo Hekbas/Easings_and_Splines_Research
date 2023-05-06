@@ -71,7 +71,8 @@ double Easing::TrackTime(double dt)
     }
 }
 ```
-> Note that __'dt'__ needs to be divided by 1000 since totalTime is expressed in seconds.
+{: .note}
+__'dt'__ needs to be divided by 1000 since totalTime is expressed in seconds.
 
 #### Example
 
