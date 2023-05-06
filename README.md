@@ -31,8 +31,9 @@ Each category includes three functions:
  Each of the 30 functions can be called directly or by using EasingAnimation and passing the appropriate EasingType.
 
 ## Controls
-
-- Camera Movement (W, A, S, D)
+- Change Between Scenes (1, 2, 3)
+- Change Selected Spline Poinr (Q, E)
+- Move Selected Spline Point (W, A, S, D)
 - Limit FPS (F10)
 
 ## Contributing
