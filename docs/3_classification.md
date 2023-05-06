@@ -38,6 +38,8 @@ They can be used to create a playful or whimsical effect in animations.
 
 Each category includes three types of functions:
 
+![](https://github.com/Hekbas/Easings_and_Splines_Research/blob/WebPage_New/assets/images/ease_inout.gif)
+
 - **Ease In:** Starts the animation slowly and gradually accelerates towards the end.
 - **Ease Out:** Starts the animation at full speed and gradually slows down towards the end.
 - **Ease InOut:** Starts the animation slowly, accelerates towards the middle, and then gradually slows down towards the end.
