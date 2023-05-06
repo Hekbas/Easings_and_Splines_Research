@@ -32,7 +32,7 @@ Each category includes three functions:
 
 ## Controls
 - Change Between Scenes (1, 2, 3)
-- Change Selected Spline Poinr (Q, E)
+- Change Selected Spline Point (Q, E)
 - Move Selected Spline Point (W, A, S, D)
 - Limit FPS (F10)
 
