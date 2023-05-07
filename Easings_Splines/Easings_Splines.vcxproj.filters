@@ -34,12 +34,6 @@
     <ClCompile Include="Source\Main.cpp">
       <Filter>Source\App</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\citm_desvj_project_template-L14_DeltaTime_solution\citm_desvj_project_template-L14_DeltaTime_solution\Game\Source\PerfTimer.cpp">
-      <Filter>Source\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\citm_desvj_project_template-L14_DeltaTime_solution\citm_desvj_project_template-L14_DeltaTime_solution\Game\Source\Timer.cpp">
-      <Filter>Source\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Easing.cpp">
       <Filter>Source\Easings_Splines\Class</Filter>
     </ClCompile>
@@ -51,6 +45,12 @@
     </ClCompile>
     <ClCompile Include="Source\SceneUIAnimation.cpp">
       <Filter>Source\Easings_Splines\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PerfTimer.cpp">
+      <Filter>Source\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Timer.cpp">
+      <Filter>Source\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,12 +114,6 @@
     <ClInclude Include="Source\Easing.h">
       <Filter>Source\Easings_Splines\Class</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\citm_desvj_project_template-L14_DeltaTime_solution\citm_desvj_project_template-L14_DeltaTime_solution\Game\Source\PerfTimer.h">
-      <Filter>Source\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\citm_desvj_project_template-L14_DeltaTime_solution\citm_desvj_project_template-L14_DeltaTime_solution\Game\Source\Timer.h">
-      <Filter>Source\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SceneSplines.h">
       <Filter>Source\Easings_Splines\Scenes</Filter>
     </ClInclude>
@@ -128,6 +122,12 @@
     </ClInclude>
     <ClInclude Include="Source\SceneUIAnimation.h">
       <Filter>Source\Easings_Splines\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PerfTimer.h">
+      <Filter>Source\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Timer.h">
+      <Filter>Source\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
